@@ -2,10 +2,20 @@
     ADAF - Automatic DMV Appointment Finder!
     Node script based on zombie to automagically find an appointment at the beloved DMV
     
-    Apointments at the DMV become available sporadically. I believe this is due to people canceling or not 
-    confirming their apointments. Those apointment are really hard to get. This script will periodically check the DMVs specified 
-    for appointments up to a certain date. If an apointment is found within the time frame a text-message is sent
-    using Twilio.
+    Appointments at the DMV become available sporadically. I believe this is due to people canceling or not 
+    confirming their appointments. Those appointment are really hard to get. 
+    This script will periodically check the DMVs specified for appointments up to a certain date. 
+    If an appointment is found within the time frame a text-message is sent
+    using Twilio. The found results are also logged in log.html and crudely formatted.
+    There's a simple webserver serving up this static html.
+
+    Check inside config.js for the necessary modifications:
+    - Which DMVs to check (multiple are possible)
+    - The date of an appointment up to wich you should be notified
+    - Which type of appointment
+    - Twilio credentials
+    - Phone number to send text message to
+
 
     This works for the California DMV site at the time of writing (05.04.2017)
 
@@ -13,6 +23,7 @@
     Copyright: None, use for whatever you want!
 
     -- Michael Beyhs --
+
 */
 
 ///////////////// Includes /////////////////
@@ -71,7 +82,7 @@ function kickOff(locationIndex){
 }
 
 // This function starts the zombie browser, goes to the website, fills out the form and submits it
-// The returned site is then parsed and if and apointment id available a text message is sent.
+// The returned site is then parsed and if and appointment id available a text message is sent.
 function checkForAppointment(locIndex, callback)
 {
     browser = new Browser({waitDuration: 30*1000}); // 30 second timeout
@@ -126,14 +137,14 @@ function checkForAppointment(locIndex, callback)
                 console.log("Appointment available in " + location[1] + " at:")
                 console.log(availableDateStr)
                 
-                if(availableDate < config.dateLimit){       // If the apointment is within our limit 
+                if(availableDate < config.dateLimit){       // If the appointment is within our limit 
                     console.log("Wohooo! It's before " + dateLimitString)
                     messageText = location[1] + " on\r\n" + availableDateStr
                     messageFile = location[1] + "<br>on<br>" + availableDateStr
                     // write to log file
                     writeFile(messageFile)
                     // send the Test-Message
-                    sendText("DMV Apointment avialable in " + messageText, locIndex, callback)
+                    sendText("DMV Appointment avialable in " + messageText, locIndex, callback)
                     //callback(locIndex)
                 } else {
                     console.log("Ugh! that's far too out :/")

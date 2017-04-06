@@ -3,10 +3,10 @@
     ADAF - Automatic DMV Appointment Finder!
     Node script based on zombie to automagically find an appointment at the beloved DMV
     
-    Apointments at the DMV become available sporadically. I believe this is due to people canceling or not 
-    confirming their apointments. Those apointment are really hard to get. 
+    Appointments at the DMV become available sporadically. I believe this is due to people canceling or not 
+    confirming their appointments. Those appointment are really hard to get. 
     This script will periodically check the DMVs specified for appointments up to a certain date. 
-    If an apointment is found within the time frame a text-message is sent
+    If an appointment is found within the time frame a text-message is sent
     using Twilio. The found results are also logged in log.html and crudely formatted.
     There's a simple webserver serving up this static html.
 
