@@ -1,0 +1,29 @@
+{
+  "name": "adaf",
+  "version": "1.0.0",
+  "description": "Automatic DMV Appointment Finder",
+  "main": "adaf.js",
+  "scripts": {
+    "start": "node adaf.js"
+  },
+  "dependencies": {
+    "sleep": "^5.1.0",
+    "sleep-async": "^1.0.1",
+    "twilio": "^2.11.1",
+    "zombie": "^5.0.5"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/michaelbeyhs/ADAF.git"
+  },
+  "keywords": [
+    "DMV"
+  ],
+  "author": "Michael Beyhs",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/michaelbeyhs/ADAF/issues"
+  },
+  "homepage": "https://github.com/michaelbeyhs/ADAF#readme"
+}
