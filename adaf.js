@@ -45,7 +45,7 @@ http.createServer(function(request, response) {
         response.write(html);  
         response.end();  
     });
-}).listen(8000);
+}).listen(process.env.PORT || 8000);
 
 // Start the search!
 kickOff(startIndex)
