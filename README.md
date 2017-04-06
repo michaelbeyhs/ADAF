@@ -7,9 +7,10 @@
     confirming their apointments. Those apointment are really hard to get. 
     This script will periodically check the DMVs specified for appointments up to a certain date. 
     If an apointment is found within the time frame a text-message is sent
-    using Twilio.
+    using Twilio. The found results are also logged in log.html and crudely formatted.
+    There's a simple webserver serving up this static html.
 
-    Check the code inside adaf.js for the necessary modifications:
+    Check inside config.js for the necessary modifications:
     - Which DMVs to check (multiple are possible)
     - The date of an appointment up to wich you should be notified
     - Which type of appointment
