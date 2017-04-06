@@ -301,7 +301,7 @@ function checkForAppointment(locIndex, callback)
                 if(availableDate < dateLimit){       // If the apointment is within our limit 
                     console.log("Wohooo! It's before " + dateLimitString)
                     // sned the Test-Message
-                    sendText("DMV Apointment avialable in " + availableDateStr + " at\r\n" + results[1], locIndex, callback)
+                    sendText("DMV Apointment avialable in " + location[1] + " on\r\n" + results[1], locIndex, callback)
                     //callback(locIndex)
                 } else {
                     console.log("Ugh! that's far too out :/")
