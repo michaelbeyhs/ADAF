@@ -18,7 +18,6 @@
 ///////////////// Includes /////////////////
 var twilio = require('twilio');
 var Browser = require("zombie");
-var sleep = require('sleep-async')();
 ////////////////////////////////////////////
 
 
