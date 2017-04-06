@@ -7,8 +7,6 @@
     "start": "node adaf.js"
   },
   "dependencies": {
-    "sleep": "^5.1.0",
-    "sleep-async": "^1.0.1",
     "twilio": "^2.11.1",
     "zombie": "^5.0.5"
   },
