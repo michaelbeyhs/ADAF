@@ -104,6 +104,10 @@ function checkForAppointment(locIndex, callback)
 
             var alerts = browser.querySelectorAll('.alert '); // The DMV is nice enough to tag all the results as class 'alert'
             results = [];
+            if (alerts.length < 1){
+                console.log("something went wrong... skipping...")
+                callback(locIndex)
+            }
             // make an array of all the results
             for (var i = 0; i < alerts.length; i++) {
                 results.push(alerts[i].textContent);
