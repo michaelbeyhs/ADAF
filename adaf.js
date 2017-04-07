@@ -113,12 +113,15 @@ function checkForAppointment(locIndex, callback)
         browser.fill("telSuffix",config.tel[2])
         browser.pressButton("Submit", function(err) {
 
-            var alerts = browser.querySelectorAll('.alert '); // The DMV is nice enough to tag all the results as class 'alert'
-            results = [];
-            if (alerts.length < 1){
+            // make sure the correct site was loaded and not some weird error happened
+            if (browser.text("title") != 'Office Visit Appointment'){
                 console.log("something went wrong... skipping...")
                 callback(locIndex)
+                return;
             }
+
+            results = [];
+            var alerts = browser.querySelectorAll('.alert '); // The DMV is nice enough to tag all the results as class 'alert'
             // make an array of all the results
             for (var i = 0; i < alerts.length; i++) {
                 results.push(alerts[i].textContent);
